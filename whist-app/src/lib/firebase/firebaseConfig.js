@@ -12,7 +12,7 @@ const config = {
     appId: import.meta.env.VITE_APP_ID,
     measurementId: import.meta.env.VITE_MEASUREMENT_ID
 };
-
+console.log(config)
 if (!firebase.apps.length) {
   firebase.initializeApp(config);
 }
