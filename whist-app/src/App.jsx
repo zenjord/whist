@@ -1,11 +1,30 @@
+import NavBar from "./components/Navbar/Navbar";
+import Root from './pages/Root';
+import NotFound from './pages/Errors/NotFound';
+import Profile from './pages/user/me/Profile';
+
+import {
+  Route,
+  Routes,
+  Navigate
+} from "react-router-dom";
+
+import AuthenticationProvider from "./contexts/AuthenticationContext/AuthenticationContext";
+
 function App() {
+  const user = true;
   return (
-    <div className="container">
-      <div class="w-25 m-auto">
-        <img src="/icon.png" class="img-fluid" alt="logo" />
+    <AuthenticationProvider>
+      <NavBar />
+      <div className="container pt-2">
+        <Routes>
+          <Route path="/" element={<Root />} />
+          <Route path="/user/me/profile" element={<Profile />} />
+          <Route path="/login" element={<Navigate to='/' />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </div>
-      <h1 class="text-center">Welkommen til Whistklubben</h1>
-    </div>
+    </AuthenticationProvider>
   )
 }
 

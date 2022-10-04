@@ -8,7 +8,7 @@ const loginUser = (email, password) => auth.signInWithEmailAndPassword(email, pa
 
 const logoutUser = () => auth.signOut()
 
-const sendPasswordRestEmail = email => auth.sendPasswordResetEmail(email)
+const sendPasswordResetEmail = email => auth.sendPasswordResetEmail(email)
 
 const loginWithGoogle = () => {
     const provider = new firebase.auth.GoogleAuthProvider
@@ -25,7 +25,7 @@ export default {
     registerUser,
     loginUser,
     logoutUser,
-    sendPasswordRestEmail,
+    sendPasswordResetEmail,
     loginWithGoogle,
     subscribeToAuthChanges
 }
